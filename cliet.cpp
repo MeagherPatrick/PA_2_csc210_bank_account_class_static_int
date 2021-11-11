@@ -2,10 +2,10 @@
 const int SIZE = 20;
 int main(){
   char ans ='q';
-  //double balance=0;
+  double balance=0;
   //double intrest=0;
   //double amt =100;
-  // acc;
+  int acc;
   bankAccount test[SIZE];
   do {
         static int newACC=0;
@@ -25,10 +25,10 @@ int main(){
       case 'B':
         for (int i = 0; i < SIZE; i++)
           test[i].acc_Prt();
-        cout << "Please enter the account num you would to edit: \n  ";
-        
-        
+        cout << "Please enter the account num you would to edit: \n  ";      
         cin >> acc;
+        balance = test[0].get_Bal();
+        cout << "balance before update is: " << balance;
         test[acc-1].acc_UPd();
         break;
       case 'c':

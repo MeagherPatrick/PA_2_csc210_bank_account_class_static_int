@@ -1,4 +1,5 @@
 #include "Header.h"
+#include <iomanip>
 using namespace std;
 int bankAccount::accNum=0;
 bankAccount::bankAccount()
@@ -19,40 +20,56 @@ int  bankAccount::acc_SET()
   cout << '\n' << "PLease enter the interest rate: ";
   cin >> intr;
   cout << '\n';
+  cout << '\n';
+  cout << bal << '\n';
 
   return accNum;
   
 }
-void bankAccount::acc_Prt()
+
+  double bankAccount::get_Bal()
+  {
+    return bal;
+  }
+
+  void bankAccount::acc_Prt()
 {
   if (nam != "")
-  cout << "name is: " << nam << " Bal is: $" << bal << " intrest is: a" << intr
+  cout << "name is: " << nam << " Bal is: $" << bal << " intrest is: " << intr
        << " account number is:  " << theACCnum << '\n';
 }
 void bankAccount::acc_DEP(double amt)
 {
-  if (amt > 0) {
-    bal += amt;
+ /* cout << '\n';
+  cout << bal << '\n';*/
+//  if (amt > 0) {
+  /*  cout << '\n';
+    cout << bal << '\n';*/
+      bal += amt;
     cout << "after deposting: " << amt << "the balance is now: " << bal
          << '\n';
-  } 
-  else
-    cout << "Error can not deposit a negative amount: \n" << '\n';
+ // } 
+ // else
+  //  cout << "Error can not deposit a negative amount: \n" << '\n';
 }
 void bankAccount::acc_WIT(double amt)
 {
-  if (amt < bal) {
+ // if (amt < bal) {
     bal -= amt;
     cout << "after Withdrawing: " << amt << '\n'
          << "the balance is now: " << bal << '\n';
-  } else
-    cout << "error can not withdraw more than current balance: \n"
-         << "current balance is: " << bal << '\n';
+ // } else
+  //  cout << "error can not withdraw more than current balance: \n"
+   //      << "current balance is: " << bal << '\n';
   }
 void bankAccount::acc_UPd()
-{
+  {
+    double balance=0;
+  balance = get_Bal();
+  cout << '\n';
+  cout << setprecision(2) << balance << '\n';
   char ans = ' ';
-  double amt;
+  double amt=0;
   while (ans != 'q') 
   {
 
@@ -67,7 +84,6 @@ void bankAccount::acc_UPd()
         cout << "Enter the amount you would like to Deposit: \n";
         cin >> amt;
         acc_DEP(amt);
-
         break;
       case 'b':
       case 'B':
@@ -77,8 +93,7 @@ void bankAccount::acc_UPd()
         break;
       case 'c':
       case 'C':
-        cout << "The current balance is: $" << bal << '\n';
-
+        cout << "The current balance is: $" << balance << '\n';
         break;
       case 'q':
       case 'Q':
