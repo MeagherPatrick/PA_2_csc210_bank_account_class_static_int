@@ -13,13 +13,10 @@ public:
   void acc_WIT(double);
   void acc_UPd();
   void acc_Prt();
- // ~bankAccount();
-
-
+ 
 private:
   static int accNum;
     int theACCnum;
   string nam;
   double bal, intr;
 } 
-;

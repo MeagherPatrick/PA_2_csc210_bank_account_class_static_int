@@ -2,10 +2,10 @@
 const int SIZE = 20;
 int main(){
   char ans ='q';
-  double balance=0;
-  double intrest=0;
-  double amt =100;
-  int acc;
+  //double balance=0;
+  //double intrest=0;
+  //double amt =100;
+  // acc;
   bankAccount test[SIZE];
   do {
         static int newACC=0;
