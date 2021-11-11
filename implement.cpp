@@ -10,15 +10,10 @@ bankAccount::bankAccount()
 }
 
 int  bankAccount::acc_SET()
-  {
-    
-   // static int i=0;
-   // accNum = ++i;
-  cout << "Please enter a name: ";
-   cin.ignore(1000,'\n');
-   
-   getline(cin,nam);
-  
+  {   
+   cout << "Please enter a name: ";
+   cin.ignore(1000,'\n');   
+   getline(cin,nam);  
   cout << '\n' << "Please enter the initail deposit: ";
   cin >> bal;
   cout << '\n' << "PLease enter the interest rate: ";
@@ -36,14 +31,24 @@ void bankAccount::acc_Prt()
 }
 void bankAccount::acc_DEP(double amt)
 {
-  bal += amt;
-  cout << "after deposting: " << amt << "the balance is now: "<<bal << '\n';
+  if (amt > 0) {
+    bal += amt;
+    cout << "after deposting: " << amt << "the balance is now: " << bal
+         << '\n';
+  } 
+  else
+    cout << "Error can not deposit a negative amount: \n" << '\n';
 }
 void bankAccount::acc_WIT(double amt)
 {
-  bal -= amt;
-  cout << "after Withdrawing: " << amt << "the balance is now: " << bal << '\n';
-}
+  if (amt < bal) {
+    bal -= amt;
+    cout << "after Withdrawing: " << amt << '\n'
+         << "the balance is now: " << bal << '\n';
+  } else
+    cout << "error can not withdraw more than current balance: \n"
+         << "current balance is: " << bal << '\n';
+  }
 void bankAccount::acc_UPd()
 {
   char ans = ' ';

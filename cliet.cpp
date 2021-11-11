@@ -1,5 +1,5 @@
 #include "Header.h"
-const int SIZE = 25;
+const int SIZE = 20;
 int main(){
   char ans ='q';
   double balance=0;
@@ -23,15 +23,17 @@ int main(){
          break;
       case 'b':
       case 'B':
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < SIZE; i++)
           test[i].acc_Prt();
-        cout << "Please enter the account num you would to edit: " << '\n';
+        cout << "Please enter the account num you would to edit: \n  ";
+        
+        
         cin >> acc;
         test[acc-1].acc_UPd();
         break;
       case 'c':
       case 'C':
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < SIZE; i++)
           test[i].acc_Prt();
         break;
       case 'q':
