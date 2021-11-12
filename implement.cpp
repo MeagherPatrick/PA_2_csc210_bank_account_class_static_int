@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "BankAccountClass.h"
 #include <iomanip>
 using namespace std;
 int bankAccount::accNum=0;
@@ -11,22 +11,37 @@ bankAccount::bankAccount()
 }
 
 int  bankAccount::acc_SET()
-  {   
-   cout << "Please enter a name: ";
-   cin.ignore(1000,'\n');   
-   getline(cin,nam);  
+{
+  cout << "Please enter a name: ";
+  cin.ignore(1000,'\n');   
+  getline(cin,nam);  
   cout << '\n' << "Please enter the initail deposit: ";
   cin >> bal;
-  cout << '\n' << "PLease enter the interest rate: ";
+  cout << '\n' << "PLease enter the interest rate as a percent: ";
   cin >> intr;
+  intr = set_intrest(intr);
   cout << '\n';
-  cout << '\n';
-  cout << bal << '\n';
-
+  //cout << "intrest is: %" << intr<< '\n';
   return accNum;
-  
 }
 
+  double bankAccount::set_intrest(double percent)
+  {
+    percent *= 100;
+    return percent;
+  }
+
+  void bankAccount::set_name(string name)
+  {
+    nam = name; 
+  }
+
+  string bankAccount::get_name(string name)
+  {
+    nam = name;
+    return nam;
+  }
+ 
   double bankAccount::get_Bal()
   {
     return bal;
@@ -35,7 +50,7 @@ int  bankAccount::acc_SET()
   void bankAccount::acc_Prt()
 {
   if (nam != "")
-  cout << "name is: " << nam << " Bal is: $" << bal << " intrest is: " << intr
+  cout << "name is: " << nam <<fixed<< setprecision(2)<<" Bal is: $" << bal << " intrest is: %" << intr
        << " account number is:  " << theACCnum << '\n';
 }
 void bankAccount::acc_DEP(double amt)
@@ -46,7 +61,8 @@ void bankAccount::acc_DEP(double amt)
     cout << '\n';
     cout << bal << '\n';
       bal += amt;
-    cout << "after deposting: " << amt << "the balance is now: " << bal
+    cout << "after deposting: " << amt << "the balance is now: " << fixed
+         << setprecision(2) << bal
          << '\n';
   } 
   else
@@ -58,16 +74,16 @@ void bankAccount::acc_WIT(double amt)
 
     bal -= amt;
     cout << "after Withdrawing: " << amt << '\n'
-         << "the balance is now: " << bal << '\n';
+         << "the balance is now: " << fixed << setprecision(2) << bal << '\n';
   }
   else cout << "error can not withdraw more than current balance: \n"
-            << "current balance is: " << bal << '\n';
+         << "current balance is: " << fixed << setprecision(2) << bal <<'\n';
 }
 void bankAccount::acc_UPd()
 {
    
-    cout << '\n' << "balance at the start of acc_UPd";
-  cout << bal << '\n';
+  /*  cout << '\n' << "balance at the start of acc_UPd";
+  cout << bal << '\n';*/
   char ans = ' ';
   double amt=0;
   while (ans != 'q') 

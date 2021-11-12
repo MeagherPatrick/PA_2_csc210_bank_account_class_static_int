@@ -1,11 +1,11 @@
-Program:  ProgramExample.cpp
-Author:  Pam Smith
-Input File:  myFile.txt
-
-Execute in Dev-C++:  Open ProgramExample.cpp
-                     Select Compile and Run
-                     When program asks for file name, enter:  myFile.txt
+Program:  client.cpp , BankAccountClass.h , implement.cpp
+Author:  Patrick Meagher
+Input File:  N/A
+Execute in VS 2019 C++ Working Draft (/std: c++ latest):  
+			-Place all file in a new project folder for VS
+                        -Open the project in VS and select Local Windows Debugger
+			-Follow on screen prompts                    
                      
-Execute stand alone: ProgramExample 1997     // This is not REQUIRED
+Execute stand alone: PA_2_csc210
 
 

@@ -140,11 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cliet.cpp" />
+    <ClCompile Include="client.cpp" />
     <ClCompile Include="implement.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="BankAccountClass.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />

@@ -9,6 +9,9 @@ public:
   // bankAccount(static int);
   // string, double, double, static int
   int acc_SET();
+  double set_intrest(double);
+  void set_name(string);
+  string get_name(string);
   double get_Bal();
   void acc_DEP(double);
   void acc_WIT(double);
