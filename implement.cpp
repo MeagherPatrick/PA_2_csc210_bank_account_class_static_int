@@ -42,32 +42,32 @@ void bankAccount::acc_DEP(double amt)
 {
  /* cout << '\n';
   cout << bal << '\n';*/
-//  if (amt > 0) {
-  /*  cout << '\n';
-    cout << bal << '\n';*/
+  if (amt > 0) {
+    cout << '\n';
+    cout << bal << '\n';
       bal += amt;
     cout << "after deposting: " << amt << "the balance is now: " << bal
          << '\n';
- // } 
- // else
-  //  cout << "Error can not deposit a negative amount: \n" << '\n';
+  } 
+  else
+    cout << "Error can not deposit a negative amount: \n" << '\n';
 }
 void bankAccount::acc_WIT(double amt)
 {
- // if (amt < bal) {
+  if (amt < bal) {
+
     bal -= amt;
     cout << "after Withdrawing: " << amt << '\n'
          << "the balance is now: " << bal << '\n';
- // } else
-  //  cout << "error can not withdraw more than current balance: \n"
-   //      << "current balance is: " << bal << '\n';
   }
+  else cout << "error can not withdraw more than current balance: \n"
+            << "current balance is: " << bal << '\n';
+}
 void bankAccount::acc_UPd()
-  {
-    double balance=0;
-  balance = get_Bal();
-  cout << '\n';
-  cout << setprecision(2) << balance << '\n';
+{
+   
+    cout << '\n' << "balance at the start of acc_UPd";
+  cout << bal << '\n';
   char ans = ' ';
   double amt=0;
   while (ans != 'q') 
@@ -93,7 +93,7 @@ void bankAccount::acc_UPd()
         break;
       case 'c':
       case 'C':
-        cout << "The current balance is: $" << balance << '\n';
+        cout << "The current balance is: $" << bal << '\n';
         break;
       case 'q':
       case 'Q':

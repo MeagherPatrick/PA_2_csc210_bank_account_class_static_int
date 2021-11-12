@@ -29,7 +29,9 @@ int main(){
         cin >> acc;
         balance = test[0].get_Bal();
         cout << "balance before update is: " << balance;
-        test[acc-1].acc_UPd();
+       
+        
+            test[acc].acc_UPd();
         break;
       case 'c':
       case 'C':
