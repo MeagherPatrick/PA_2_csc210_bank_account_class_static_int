@@ -1,15 +1,15 @@
-/*Bank Account*/
-
-
+/***************************************
+Program Name: Client.cpp
+Author: Patrick Meagher
+This program allows a client to 
+set and update customers' bank accounts
+***************************************/
 
 
 #include "BankAccountClass.h"
 const int SIZE = 20;
 int main(){
   char ans ='q';
-  double balance=0;
-  //double intrest=0;
-  //double amt =100;
   int acc;
   bankAccount test[SIZE];
   do {
@@ -32,10 +32,6 @@ int main(){
           test[i].acc_Prt();
         cout << "Please enter the account num you would to edit: \n  ";      
         cin >> acc;
-        balance = test[0].get_Bal();
-        cout << "balance before update is: " << balance;
-       
-        
             test[acc].acc_UPd();
         break;
       case 'c':
@@ -52,6 +48,9 @@ int main(){
   return 0;
   }
 
+  //double balance=0;
+  //double intrest=0;
+  //double amt =100;
  // for (int i = 0; i < SIZE; i++)
    // test[i].acc_Prt();
   /*test[0].acc_DEP(amt);

@@ -1,56 +1,52 @@
 #include "BankAccountClass.h"
 #include <iomanip>
 using namespace std;
-int bankAccount::accNum=0;
+int bankAccount::accNum=100;
 bankAccount::bankAccount()
 {
-  nam = "";
+  nam = "9";
   bal = 0;
   intr = 0;
-  theACCnum=accNum++;
+  theACCnum = accNum++;
 }
 
-int  bankAccount::acc_SET()
+void  bankAccount::acc_SET()
 {
-  cout << "Please enter a name: ";
-  cin.ignore(1000,'\n');   
-  getline(cin,nam);  
-  cout << '\n' << "Please enter the initail deposit: ";
+ // string name = "999";
+   /* cout << "Please enter a name: ";
+    cin.ignore(1000, '\n');
+    getline(cin, nam);*/
+  //while (nam == "")
+  //{
+    cout << "Please enter a name: \n";
+    cin.ignore(1000, '\n');
+    getline(cin, nam);
+    cin.clear();
+  /*  name = nam;
+    cout << '\n' << "you entered: " << nam;
+     if (name == " ") 
+     {
+      cin.ignore(1000, '\n');
+      cout << " \nName can NOT be left   ! \n ";
+     }
+    } */
+  cout << '\n' << "Please enter the initial  deposit: ";
   cin >> bal;
-  cout << '\n' << "PLease enter the interest rate as a percent: ";
+  cout << '\n' << "Please enter the interest rate as a percent: ";
   cin >> intr;
-  intr = set_intrest(intr);
+  intr *= 100;
   cout << '\n';
+/*  theACCnum = get_accNum(accNum);*/  
   //cout << "intrest is: %" << intr<< '\n';
-  return accNum;
+ // return accNum;
 }
 
-  double bankAccount::set_intrest(double percent)
-  {
-    percent *= 100;
-    return percent;
-  }
-
-  void bankAccount::set_name(string name)
-  {
-    nam = name; 
-  }
-
-  string bankAccount::get_name(string name)
-  {
-    nam = name;
-    return nam;
-  }
  
-  double bankAccount::get_Bal()
-  {
-    return bal;
-  }
 
   void bankAccount::acc_Prt()
 {
-  if (nam != "")
-  cout << "name is: " << nam <<fixed<< setprecision(2)<<" Bal is: $" << bal << " intrest is: %" << intr
+  if (nam != "9")
+  cout << "name is: " << nam <<fixed<< setprecision(2)<<" Bal is: $" << bal << " interest  is: %" << intr
        << " account number is:  " << theACCnum << '\n';
 }
 void bankAccount::acc_DEP(double amt)
@@ -61,7 +57,7 @@ void bankAccount::acc_DEP(double amt)
     cout << '\n';
     cout << bal << '\n';
       bal += amt;
-    cout << "after deposting: " << amt << "the balance is now: " << fixed
+    cout << "after depositing: " << amt << "the balance is now: " << fixed
          << setprecision(2) << bal
          << '\n';
   } 
@@ -119,7 +115,38 @@ void bankAccount::acc_UPd()
   }
 }
 
+  //double bankAccount::get_Bal()
+  //{
+  //  return bal;
+  //}
+
+  /*void bankAccount::set_name(string name)
+  {
+    nam = name; 
+  }*/
+
+  //string bankAccount::get_name(string name)
+  //{
+  //  nam = name;
+  //  return nam;
+  //}
   
+//void bankAccount::set_accNum()
+//{
+//  //accNum++;
+//}
+
+
+  /*double bankAccount::set_interest(double percent)
+  {
+    percent *= 100;
+    return percent;
+  }*/
+//int bankAccount::get_accNum(int an)
+//{
+//  an = accNum;
+//  return ++an;
+//}
  /* cout << "PLease enter the name you would like to replace " << nam
        << " with: " << '\n';
   cin >> nam;
