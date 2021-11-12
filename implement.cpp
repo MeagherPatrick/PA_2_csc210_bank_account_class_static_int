@@ -1,12 +1,12 @@
 #include "BankAccountClass.h"
 #include <iomanip>
 using namespace std;
-int bankAccount::accNum=100;
+int bankAccount::accNum=0;
 bankAccount::bankAccount()
 {
   nam = "9";
   bal = 0;
-  intr = 0;
+  inter = 0;
   theACCnum = accNum++;
 }
 
@@ -33,11 +33,11 @@ void  bankAccount::acc_SET()
   cout << '\n' << "Please enter the initial  deposit: ";
   cin >> bal;
   cout << '\n' << "Please enter the interest rate as a percent: ";
-  cin >> intr;
-  intr *= 100;
+  cin >> inter;
+  inter *= 100;
   cout << '\n';
 /*  theACCnum = get_accNum(accNum);*/  
-  //cout << "intrest is: %" << intr<< '\n';
+  //cout << "intrest is: %" << inter<< '\n';
  // return accNum;
 }
 
@@ -46,8 +46,14 @@ void  bankAccount::acc_SET()
   void bankAccount::acc_Prt()
 {
   if (nam != "9")
-  cout << "name is: " << nam <<fixed<< setprecision(2)<<" Bal is: $" << bal << " interest  is: %" << intr
+  cout << "name is: " << nam <<fixed<< setprecision(2)<<" Bal is: $" << bal << " interest  is: %" << inter
        << " account number is:  " << theACCnum << '\n';
+}
+void bankAccount::acc_InterestUpdate()
+{
+  cout << bal << '\n';
+  bal += (bal * inter/100);
+  cout << "New balance: "<< bal << '\n';
 }
 void bankAccount::acc_DEP(double amt)
 {
@@ -88,6 +94,7 @@ void bankAccount::acc_UPd()
     cout << "Enter a to make a deposit." << '\n'
          << "Enter b to withdraw." << '\n'
          << "Enter c to check balance." << '\n'
+         << "Enter d to upate balance with interest." << '\n'
          << "Enter q to exit the program." << '\n';
     cin >> ans;
     switch (ans) {
@@ -107,10 +114,15 @@ void bankAccount::acc_UPd()
       case 'C':
         cout << "The current balance is: $" << bal << '\n';
         break;
+      case 'd':
+      case 'D':
+        acc_InterestUpdate();
+        break;
       case 'q':
       case 'Q':
-        exit(0);
-        break;
+      default:
+          break;
+
     }
   }
 }
@@ -153,9 +165,9 @@ void bankAccount::acc_UPd()
   cout << "PLease enter bal you would like to replace " << bal
        << " with: " << '\n';
   cin >> bal;
-  cout << "PLease enter the name you would like to replace " << intr
+  cout << "PLease enter the name you would like to replace " << inter
        << " with: " << '\n';
-  cin >> intr;
+  cin >> inter;
   cout << accNum << " has been updated to: " << '\n';
   acc_Prt();*/
 ////bankAccount::~bankAccount()

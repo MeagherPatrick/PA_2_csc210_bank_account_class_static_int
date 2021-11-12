@@ -49,21 +49,28 @@ public:
 		//										  Withdrawal
 		// 										  Deposit										  
   void acc_Prt();
-  // prints all uses created customers and all data
-  // Precondition:
-  //				at least one customer account should have been created.
-  // Postcondition:
-  //				 cout to console:
-  //								  Name
-  //								  Balance
-  //								  Interest 
-  //								  Acc Num
-
+		// prints all uses created customers and all data
+		// Precondition:
+		//				at least one customer account should have been created.
+		// Postcondition:
+		//				 cout to console:
+		//								  Name
+		//								  Balance
+		//								  Interest 
+		//								  Acc Num
+  void acc_InterestUpdate();
+		// updates bal with interest.
+		// Precondition:
+		//              bal and interest must be set
+		// Postcondition:
+		//			  Balance is increased interest
+		//			  cout to console:
+		//							  New Balance
 private:
   static int accNum;
   int theACCnum;
   string nam;
-  double bal, intr;
+  double bal, inter;
 };
  // double get_Bal();
 //const int MAX = 25;
