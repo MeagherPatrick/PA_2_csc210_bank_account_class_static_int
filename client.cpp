@@ -8,23 +8,29 @@ set and update customers' bank accounts
 
 #include "BankAccountClass.h"
 const int SIZE = 20;
-int main(){
+void acc_update();
+int main()
+{
   char ans ='q';
   int acc;
   bankAccount test[SIZE];
   do {
         static int newACC=0;
-    cout << "Enter a to add a new customer's data." << '\n'
-         << "Enter b to edit customer data." << '\n'
-         << "Enter c to print all customer data." << '\n'
-         << "Enter q to exit the program." << '\n';
+    cout << "Enter a to add a new customer's data. \n"
+         << "Enter b to edit customer data. \n"
+         << "Enter c to print all customer data. \n"
+         << "Enter q to exit the program. \n";
     cin >> ans;
 
     switch (ans) {
       case 'a':
       case 'A':
-        test[newACC].acc_SET();   
-        newACC++;
+        if (newACC < 20) {
+          test[newACC].acc_SET();
+          newACC++;
+          break;
+        }
+        cout << "No more accounts can be created max of 20 was reached \n";
          break;
       case 'b':
       case 'B':
@@ -57,3 +63,8 @@ int main(){
   test[0].acc_Prt();
   amt = 0.4;
   test[0].acc_WIT(amt);*/
+
+  void acc_update()
+  {
+
+  }

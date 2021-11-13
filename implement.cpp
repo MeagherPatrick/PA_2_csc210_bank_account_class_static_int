@@ -12,38 +12,18 @@ bankAccount::bankAccount()
 
 void  bankAccount::acc_SET()
 {
- // string name = "999";
-   /* cout << "Please enter a name: ";
-    cin.ignore(1000, '\n');
-    getline(cin, nam);*/
-  //while (nam == "")
-  //{
-    cout << "Please enter a name: \n";
+  cout << "Please enter a name: \n";
     cin.ignore(1000, '\n');
     getline(cin, nam);
-    cin.clear();
-  /*  name = nam;
-    cout << '\n' << "you entered: " << nam;
-     if (name == " ") 
-     {
-      cin.ignore(1000, '\n');
-      cout << " \nName can NOT be left   ! \n ";
-     }
-    } */
+    cin.clear(); 
   cout << '\n' << "Please enter the initial  deposit: ";
-  cin >> bal;
+    cin >> bal;
   cout << '\n' << "Please enter the interest rate as a percent: ";
-  cin >> inter;
+    cin >> inter;
   inter *= 100;
-  cout << '\n';
-/*  theACCnum = get_accNum(accNum);*/  
-  //cout << "intrest is: %" << inter<< '\n';
- // return accNum;
+    cout << '\n';
 }
-
- 
-
-  void bankAccount::acc_Prt()
+void bankAccount::acc_Prt()
 {
   if (nam != "9")
   cout << "name is: " << nam <<fixed<< setprecision(2)<<" Bal is: $" << bal << " interest  is: %" << inter
@@ -52,23 +32,19 @@ void  bankAccount::acc_SET()
 void bankAccount::acc_InterestUpdate()
 {
   cout << bal << '\n';
-  bal += (bal * inter/100);
-  cout << "New balance: "<< bal << '\n';
+    bal += (bal * inter/100);
+        cout << "New balance: "<< bal << '\n';
 }
 void bankAccount::acc_DEP(double amt)
 {
- /* cout << '\n';
-  cout << bal << '\n';*/
   if (amt > 0) {
-    cout << '\n';
-    cout << bal << '\n';
-      bal += amt;
-    cout << "after depositing: " << amt << "the balance is now: " << fixed
+    bal += amt;
+        cout << "after depositing: " << amt << "the balance is now: " << fixed
          << setprecision(2) << bal
          << '\n';
   } 
-  else
-    cout << "Error can not deposit a negative amount: \n" << '\n';
+    else
+        cout << "Error can not deposit a negative amount: \n";
 }
 void bankAccount::acc_WIT(double amt)
 {
@@ -82,20 +58,17 @@ void bankAccount::acc_WIT(double amt)
          << "current balance is: " << fixed << setprecision(2) << bal <<'\n';
 }
 void bankAccount::acc_UPd()
-{
-   
-  /*  cout << '\n' << "balance at the start of acc_UPd";
-  cout << bal << '\n';*/
+{ 
+ 
   char ans = ' ';
   double amt=0;
   while (ans != 'q') 
   {
-
     cout << "Enter a to make a deposit." << '\n'
          << "Enter b to withdraw." << '\n'
          << "Enter c to check balance." << '\n'
          << "Enter d to upate balance with interest." << '\n'
-         << "Enter q to exit the program." << '\n';
+         << "Enter q to return to previous menu." << '\n';
     cin >> ans;
     switch (ans) {
       case 'a':
